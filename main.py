@@ -10,7 +10,7 @@ from flask_login import UserMixin
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 Bootstrap(app)
 
 app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///joints.db' #sets our local databse as the alternative during local production
