@@ -1,0 +1,41 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{ super() }}
+	<link href="{{url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/star.png')}}">
+{% endblock %}
+
+{% block title %}Top Picks{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>All Spots</h1>
+
+	  <table class="table">
+          {% for spot in all_spots %}  <!-- loops through rows from the cafes data -->
+          <tr>
+              <td>{{ spot.place }}</td>
+              <td>{{ spot.location_url }}</td>
+              <td><a href="{{ spot.img_url }}">How It Looks</a></td>
+              <td>{{ spot.music_taste }}</td>
+              <td>{{ spot.price }}</td>
+              <td>{{ spot.eats }}</td>
+              <td>{{ spot.security }}</td>
+              <td>{{ spot.internet }}</td>
+              <td>{{ spot.exclusive }}</td>
+          </tr>
+          {% endfor %}
+  	  </table>
+
+      <p><a href="{{ url_for('home') }}">Return to index page</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

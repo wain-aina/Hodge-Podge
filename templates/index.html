@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{ super() }}
+    <link href="{{url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon-32x32.png')}}">
+{% endblock %}
+
+{% block title %}Hodge Podge KE{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+  <h1 class="display-4">😎 The Hodge Podge 🧭</h1>
+  <p class="lead">Want to find a place for the weekend, a hangout or a date?</p>
+  <hr class="my-4">
+  <p>You've come to the right place! Checkout people's recommended hotspots for the best music, eats and treats. </p>
+  <a class="btn btn-light btn-lg" href="{{ url_for('add_joint') }}" role="button">Suggest </a>
+  <a class="btn btn-warning btn-lg" href="{{ url_for('all_cafes') }}" role="button">Show Me!</a>
+</div>
+    </div>
+
+{% endblock %}
